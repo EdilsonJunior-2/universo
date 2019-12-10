@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./styles.css";
-import MaterialTable from 'material-table';
 
 
 // import { Container } from './styles';
@@ -47,12 +46,7 @@ export default class galaxias extends Component {
         return (
             <>
                 <div className="tabela">
-                    <MaterialTable
-                        title="Editable Example"
-                        columns={state.columns}
-                        data={state.data}
-                        
-                    />
+                    
                 </div>
             </>
         );
