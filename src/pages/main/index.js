@@ -31,7 +31,7 @@ export default class Main extends Component {
     </p>
                     </div>
 
-                    <div className="devs">Desenvolvedores:<br /> Edilson Leite Santos Junior;<br />João Ferreira Neto.</div>
+                    <div className="devs">Desenvolvedores:<br /> Edilson Leite Santos Junior;<br />João Ferreira dos Santos Neto.</div>
 
                 </div>
             </>

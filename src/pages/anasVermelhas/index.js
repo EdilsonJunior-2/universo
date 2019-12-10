@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 // import { Container } from './styles';
 
-export default class planetas extends Component {
+export default class anasVermelhas extends Component {
   render() {
     return (
         <>
         <div className="tabela">
-                Tabela de Planetas
+        Tabela de Anãs Vermelhas
         </div>
         </>
-    );
+            );
   }
 }

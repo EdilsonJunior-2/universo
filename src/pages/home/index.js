@@ -10,15 +10,15 @@ export default class Home extends Component {
                     <h2>Seja bem vindo, Usuário!</h2>
                     <div className="botoes">
                         <Link to="/galaxias" className="opcoes">Galáxias</Link>
-                        <Link className="opcoes">Sistemas Planetários</Link>
-                        <Link className="opcoes">Planetas</Link>
-                        <Link className="opcoes">Satélites Naturais</Link>
-                        <Link className="opcoes">Estrelas</Link>
-                        <Link className="opcoes">Anãs Vermelhas</Link>
-                        <Link className="opcoes">Anãs Brancas</Link>
-                        <Link className="opcoes">Estrelas Bináias</Link>
-                        <Link className="opcoes">Gigantes Azuis</Link>
-                        <Link className="opcoes">Gigantes Vermelhas</Link>
+                        <Link to="/sistemasPlanetarios" className="opcoes">Sistemas Planetários</Link>
+                        <Link to="/planetas" className="opcoes">Planetas</Link>
+                        <Link to="/satelitesNaturais" className="opcoes">Satélites Naturais</Link>
+                        <Link to="/estrelas" className="opcoes">Estrelas</Link>
+                        <Link to="anasVermelhas" className="opcoes">Anãs Vermelhas</Link>
+                        <Link to="anasBrancas" className="opcoes">Anãs Brancas</Link>
+                        <Link to="/estrelasBinarias" className="opcoes">Estrelas Bináias</Link>
+                        <Link to="/gigantesAzuis" className="opcoes">Gigantes Azuis</Link>
+                        <Link to="/gigantesVermelhas" className="opcoes">Gigantes Vermelhas</Link>
                     </div>
                 </div>
             </>

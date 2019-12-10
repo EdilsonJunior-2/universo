@@ -10,7 +10,7 @@ export default class galaxias extends Component {
         return (
             <>
                 <div className="tabela">
-                  tela de galaxias
+                  Tabela de galaxias
                 </div>
             </>
         );

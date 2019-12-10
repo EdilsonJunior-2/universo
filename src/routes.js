@@ -7,6 +7,14 @@ import Cadastro from "./pages/cadastro";
 import Home from "./pages/home";
 import Galaxias from "./pages/galaxias";
 import Estrelas from "./pages/estrelas";
+import SistemasPlanetarios from "./pages/sistemasPlanetarios";
+import Planetas from "./pages/planetas";
+import AnasBrancas from "./pages/anasBrancas";
+import AnasVermelas from "./pages/anasVermelhas";
+import GigantesAzuis from "./pages/gigantesAzuis";
+import GigantesVermelhas from "./pages/gigantesVermelhas";
+import SatelitesNaturais from "./pages/satelitesNaturais";
+import EstrelasBinarias from "./pages/estrelasBinarias";
 
 export default class Routes extends Component{
 
@@ -19,7 +27,15 @@ export default class Routes extends Component{
                     <Route exact path="/cadastro" component={Cadastro} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/galaxias" component={Galaxias} />
-                    <Route path ="/home/estrelas" component={Estrelas} />
+                    <Route exact path ="/estrelas" component={Estrelas} />
+                    <Route exact path="/sistemasPlanetarios" component={SistemasPlanetarios} />
+                    <Route exact path="/planetas" component={Planetas} />
+                    <Route exact path="/anasBrancas" component={AnasBrancas} />
+                    <Route exact path="/anasVermelhas" component={AnasVermelas} />
+                    <Route exact path="/gigantesAzuis" component={GigantesAzuis} />
+                    <Route exact path="/gigantesVermelhas" component={GigantesVermelhas} />
+                    <Route exact path="/satelitesNaturais" component={SatelitesNaturais} />
+                    <Route exact path="/estrelasBinarias" component={EstrelasBinarias} />
                 </Switch>
             </BrowserRouter>
         )
