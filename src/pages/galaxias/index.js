@@ -5,7 +5,21 @@ import "./styles.css";
 // import { Container } from './styles';
 
 export default class galaxias extends Component {
-    /*  state = {
+
+    render() {
+        return (
+            <>
+                <div className="tabela">
+                  tela de galaxias
+                </div>
+            </>
+        );
+    }
+}
+
+/*
+
+  state = {
           personagens: []
       }
   
@@ -19,41 +33,10 @@ export default class galaxias extends Component {
           console.log(personagens);
   
           this.setState({ personagens: personagens });
-      }*/
+      }
 
-    render() {
-        const [state, setState] = React.useState({
-            columns: [
-                { title: 'Name', field: 'name' },
-                { title: 'Surname', field: 'surname' },
-                { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-                {
-                    title: 'Birth Place',
-                    field: 'birthCity',
-                    lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-                },
-            ],
-            data: [
-                { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-                {
-                    name: 'Zerya Betül',
-                    surname: 'Baran',
-                    birthYear: 2017,
-                    birthCity: 34,
-                },
-            ],
-        });
-        return (
-            <>
-                <div className="tabela">
-                    
-                </div>
-            </>
-        );
-    }
-}
 
-/*
+
                 <table className="striped">
                     <thead>
                         <th>Nome</th>

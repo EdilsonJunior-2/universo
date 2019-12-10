@@ -6,6 +6,7 @@ import Main from "./pages/main";
 import Cadastro from "./pages/cadastro";
 import Home from "./pages/home";
 import Galaxias from "./pages/galaxias";
+import Estrelas from "./pages/estrelas";
 
 export default class Routes extends Component{
 
@@ -18,6 +19,7 @@ export default class Routes extends Component{
                     <Route exact path="/cadastro" component={Cadastro} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/galaxias" component={Galaxias} />
+                    <Route path ="/home/estrelas" component={Estrelas} />
                 </Switch>
             </BrowserRouter>
         )
