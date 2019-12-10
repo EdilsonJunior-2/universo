@@ -1,0 +1,34 @@
+*{
+    background: url("./universe2.jpg") no-repeat;
+    background-size: auto;
+    color: #ffffff;
+}
+
+.link{
+    color: yellow;
+}
+
+div, h1, h2, p, .link, .tela, input, button,
+form, .opcoes, th, table, thead, tbody, tr, td{
+    background: transparent;
+}
+
+div, p, .link, .tela, input, button, .opcoes{
+    font-size: large;
+    font-weight: bold;
+}
+
+button, .opcoes{
+    margin-top: 15px;
+}
+
+h1, h2{
+    text-align: center;
+    margin: 0;
+    padding-top: 50px;
+}
+
+table, td, tr, thead, tbody{
+    border: 1px;
+    box-sizing: border-box;
+}

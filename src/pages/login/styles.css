@@ -1,0 +1,13 @@
+.caixa-login{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 25%;
+    border-radius: 10%;
+}
+
+input{
+    width: 250px;
+}
+
