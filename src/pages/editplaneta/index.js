@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import "./styles.css";
-import api from '../../services/api';
-import { Link } from "react-router-dom";
+import api from "../../services/api";
+
 // import { Container } from './styles';
 
-export default class addplaneta extends Component {
+export default class editplaneta extends Component {
 
     state = {
+        id: "",
         nome_planeta: "",
         tam_planeta: null,
         massa_planeta: null,
@@ -14,10 +14,35 @@ export default class addplaneta extends Component {
         comp_planeta: ""
     }
 
-    handleSubmit =  async e => {
+    componentDidMount(){
+        this.selecionarPlaneta();
+    }
+
+    selecionarPlaneta = async () => {
+        const response = await api.get(`/planetas`);
+        const planetas = response.data.planetas.find(planetas => planetas._id == this.props.match.params.id);;
+        this.setState({
+            id: planetas._id,
+            nome_planeta: planetas.nome_planeta,
+            tam_planeta: planetas.tam_planeta,
+            massa_planeta: planetas.massa_planeta,
+            gravidade_planeta: planetas.gravidade_planeta,
+            comp_planeta: planetas.comp_planeta
+        })
+
+        console.log(this.state.id);
+    }
+
+    
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+        console.log(e.target.value);
+    };
+
+    handleSubmit = async e => {
         e.preventDefault();
         console.log("teste");
-        await api.post("/planetas", {
+        await api.post(`/planetas/edit/${this.state.id}`, {
             nome_planeta: this.state.nome_planeta,
             tam_planeta: this.state.tam_planeta,
             massa_planeta: this.state.massa_planeta,
@@ -25,24 +50,21 @@ export default class addplaneta extends Component {
             comp_planeta: this.state.comp_planeta
         })
 
+        console.log(this.state.id);
+
         this.props.history.push("/planetas")
 
     }
 
-    handleChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-        console.log(e.target.value);
-    };
-
     render() {
-
 
         return (
             <>
                 <div className="tela">
+                    <div>Tela de edição de planetas</div>
                     <form className="caixa-cadastro"
                             onSubmit={this.handleSubmit}>
-                        <h1>Adicionar Planeta</h1>
+                        <h1>Editar Planeta</h1>
 
                         <p>Nome do Planeta</p>
                         <input type="text"
@@ -88,7 +110,7 @@ export default class addplaneta extends Component {
                     </form>
 
                 </div>
-            </>
-        );
+        
+    </>);
     }
 }

@@ -16,6 +16,7 @@ import GigantesVermelhas from "./pages/gigantesVermelhas";
 import SatelitesNaturais from "./pages/satelitesNaturais";
 import EstrelasBinarias from "./pages/estrelasBinarias";
 import AddPlaneta from "./pages/addplaneta";
+import EditPlaneta from "./pages/editplaneta";
 
 export default class Routes extends Component{
 
@@ -38,6 +39,7 @@ export default class Routes extends Component{
                     <Route exact path="/satelitesNaturais" component={SatelitesNaturais} />
                     <Route exact path="/estrelasBinarias" component={EstrelasBinarias} />
                     <Route exact path="/planetas/add" component={AddPlaneta} />
+                    <Route exact path="/planetas/edit/:id" component={EditPlaneta} />
                 </Switch>
             </BrowserRouter>
         )

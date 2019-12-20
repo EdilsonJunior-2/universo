@@ -1,0 +1,17 @@
+table, th, td{
+    border: 1px solid;
+    text-align: center;
+}
+
+th{
+    width: 15%;
+}
+
+table{
+    margin-top: 50px;
+    min-width: 750px;
+}
+
+.tela-planetas{
+    min-width: 500px;
+}
