@@ -9,7 +9,7 @@
 }
 
 div, h1, h2, p, .link, .tela, input, button,
-form, .opcoes, th, table, thead, tbody, tr, td{
+form, .opcoes, th, table, thead, tbody, tr, td, select{
     background: transparent;
 }
 

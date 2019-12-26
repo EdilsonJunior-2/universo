@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from "../../services/api";
+import api from "../../../services/api";
 
 // import { Container } from './styles';
 
@@ -20,7 +20,7 @@ export default class editplaneta extends Component {
 
     selecionarPlaneta = async () => {
         const response = await api.get(`/planetas`);
-        const planetas = response.data.planetas.find(planetas => planetas._id == this.props.match.params.id);;
+        const planetas = response.data.planetas.find(planetas => planetas._id === this.props.match.params.id);
         this.setState({
             id: planetas._id,
             nome_planeta: planetas.nome_planeta,

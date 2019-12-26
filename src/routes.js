@@ -8,15 +8,17 @@ import Home from "./pages/home";
 import Galaxias from "./pages/galaxias";
 import Estrelas from "./pages/estrelas";
 import SistemasPlanetarios from "./pages/sistemasPlanetarios";
-import Planetas from "./pages/planetas";
+import Planetas from "./pages/planetas/showplanetas";
+import AddPlaneta from "./pages/planetas/addplaneta";
+import EditPlaneta from "./pages/planetas/editplaneta";
+import SatelitesNaturais from "./pages/satelitesNaturais/showsatelites";
+import AddSatelite from "./pages/satelitesNaturais/addsatelite";
+import EditSatelite from "./pages/satelitesNaturais/editsatelite";
 import AnasBrancas from "./pages/anasBrancas";
 import AnasVermelas from "./pages/anasVermelhas";
 import GigantesAzuis from "./pages/gigantesAzuis";
 import GigantesVermelhas from "./pages/gigantesVermelhas";
-import SatelitesNaturais from "./pages/satelitesNaturais";
 import EstrelasBinarias from "./pages/estrelasBinarias";
-import AddPlaneta from "./pages/addplaneta";
-import EditPlaneta from "./pages/editplaneta";
 
 export default class Routes extends Component{
 
@@ -32,14 +34,17 @@ export default class Routes extends Component{
                     <Route exact path="/estrelas" component={Estrelas} />
                     <Route exact path="/sistemasPlanetarios" component={SistemasPlanetarios} />
                     <Route exact path="/planetas" component={Planetas} />
+                    <Route exact path="/planetas/add" component={AddPlaneta} />
+                    <Route exact path="/planetas/edit/:id" component={EditPlaneta} />
+                    <Route exact path="/satelitesNaturais" component={SatelitesNaturais} />
+                    <Route exact path="/satelitesNaturais/add" component={AddSatelite} />
+                    <Route exact path="/satelitesNaturais/edit/:id" component={EditSatelite} />
                     <Route exact path="/anasBrancas" component={AnasBrancas} />
                     <Route exact path="/anasVermelhas" component={AnasVermelas} />
                     <Route exact path="/gigantesAzuis" component={GigantesAzuis} />
                     <Route exact path="/gigantesVermelhas" component={GigantesVermelhas} />
-                    <Route exact path="/satelitesNaturais" component={SatelitesNaturais} />
                     <Route exact path="/estrelasBinarias" component={EstrelasBinarias} />
-                    <Route exact path="/planetas/add" component={AddPlaneta} />
-                    <Route exact path="/planetas/edit/:id" component={EditPlaneta} />
+
                 </Switch>
             </BrowserRouter>
         )

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import "./styles.css";
-import api from '../../services/api';
-import { Link } from "react-router-dom";
-// import { Container } from './styles';
+import api from '../../../services/api';
 
 export default class addplaneta extends Component {
 
