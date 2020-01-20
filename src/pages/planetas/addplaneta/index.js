@@ -33,8 +33,6 @@ export default class addplaneta extends Component {
     };
 
     render() {
-
-
         return (
             <>
                 <div className="tela">

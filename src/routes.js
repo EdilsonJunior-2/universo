@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Login from "./pages/login";
+import Login from "./pages/usuario/login";
 import Main from "./pages/main";
-import Cadastro from "./pages/cadastro";
+import Cadastro from "./pages/usuario/cadastro";
 import Home from "./pages/home";
 import Galaxias from "./pages/galaxias";
 import Estrelas from "./pages/estrelas";
