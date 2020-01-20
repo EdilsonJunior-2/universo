@@ -4,6 +4,10 @@
     color: #ffffff;
 }
 
+#root{
+    min-width: 750px;;
+}
+
 .link{
     color: yellow;
 }
@@ -28,7 +32,30 @@ h1, h2{
     padding-top: 50px;
 }
 
-table, td, tr, thead, tbody{
-    border: 1px;
+table, td, tr, thead, tbody, th{
+    border: 1px solid;
     box-sizing: border-box;
+}
+
+th{
+    width: 15%;
+}
+
+.tabela-geral{
+    margin-top: 20px!important;
+}
+
+.titulo-geral{
+    font-size: 30px;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.botao-adicionar-geral{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

@@ -32,12 +32,11 @@ export default class planetas extends Component {
     const { planetas } = this.state;
     return (
       <>
-        <div className="tela-planetas">
+        <div className="titulo-geral">
           Tabela de Planetas
-                <Link to="/planetas/add">Adicionar Planeta</Link>
         </div>
         <div className="tabela">
-          <table className="striped">
+          <table className="striped tabela-geral">
             <thead>
               <th>Nome</th>
               <th>Massa (kg)</th>
@@ -64,6 +63,7 @@ export default class planetas extends Component {
           </table>
 
         </div>
+        <div className="botao-adicionar-geral"><Link to="/planetas/add">Adicionar Planeta</Link></div>
       </>
     );
   }

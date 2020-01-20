@@ -31,18 +31,16 @@ export default class satelitesNaturais extends Component {
     const { satelitesNaturais } = this.state;
     return (
       <>
-        <div className="tela-planetas">
+        <div className="titulo-geral">
           Tabela de Satélites
-                <Link to="/satelitesNaturais/add">Adicionar Satélite</Link>
         </div>
         <div className="tabela">
-          <table className="striped">
+          <table className="striped tabela-geral">
             <thead>
               <th>Nome</th>
               <th>Massa (kg)</th>
               <th>Área da superfície (km^2)</th>
               <th>Composição</th>
-              <th>Planeta</th>
               <th>Config</th>
             </thead>
             <tbody>
@@ -52,7 +50,6 @@ export default class satelitesNaturais extends Component {
                   <td>{satelite.massa_SN}</td>
                   <td>{satelite.tam_SN}</td>
                   <td>{satelite.comp_SN}</td>
-                  <td>{satelite.planeta.nome_planeta}</td>
                   <td>
                     <Link to={`satelitesNaturais/edit/${satelite._id}`}><button>Editar</button></Link>
                     <button onClick={() => this.deleteSatelite(satelite)}>Excluir</button>
@@ -62,6 +59,7 @@ export default class satelitesNaturais extends Component {
             </tbody>
           </table>
         </div>
+       <div className="botao-adicionar-geral"><Link to="/satelitesNaturais/add">Adicionar Satélite</Link></div> 
       </>
     );
   }

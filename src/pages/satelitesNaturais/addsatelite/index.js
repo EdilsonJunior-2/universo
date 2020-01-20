@@ -8,34 +8,16 @@ export default class addsatelite extends Component {
         nome_satelite: "",
         tam_satelite: null,
         massa_satelite: null,
-        comp_satelite: "",
-        planeta: null,
-        planetas: []
-    }
-
-    componentDidMount() {
-        this.loadPlanetas();
-    }
-
-    loadPlanetas = async () => {
-        const response = await api.get(`/planetas`);
-        const planetas = response.data.planetas;
-        console.log(response.data.planetas);
-        this.setState({ planetas: planetas });
+        comp_satelite: ""
     }
 
     handleSubmit = async e => {
         e.preventDefault();
-        console.log(this.state);
-        const nome = this.state.planeta;
-        const listaPlanetas = this.state.planetas;
-        this.state.planetas = listaPlanetas.find(listaPlanetas => listaPlanetas.nome_planeta === nome);
         await api.post("/satelites", {
             nome_SN: this.state.nome_satelite,
             tam_SN: this.state.tam_satelite,
             massa_SN: this.state.massa_satelite,
-            comp_SN: this.state.comp_satelite,
-            planeta: this.state.planetas
+            comp_SN: this.state.comp_satelite
         })
 
         this.props.history.push("/satelitesNaturais") 
@@ -47,8 +29,6 @@ export default class addsatelite extends Component {
     };
 
     render() {
-
-        const { planetas } = this.state;
         return (
             <>
                 <div className="tela">
@@ -87,17 +67,7 @@ export default class addsatelite extends Component {
                             onChange={this.handleChange}
                             value={this.state.comp_satelite}
                         />
-                        <p>Planeta</p>
-                        <select
-                            type="object"
-                            name="planeta"
-                            onChange={this.handleChange}
-                        >
-                            {planetas.map(planeta => (
-                                <option value={planeta.nome_planeta}>{planeta.nome_planeta}</option>
-                            ))}
-                        </select>
-
+                        
                         <button type="submit">Enviar</button>
                     </form>
 
