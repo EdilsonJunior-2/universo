@@ -27,7 +27,7 @@ export default class planetas extends Component {
   }
 
   isnumber(tamanho) {
-    if (tamanho == null) {
+    if (tamanho === null) {
       return false;
     } else {
       return true;
@@ -35,7 +35,7 @@ export default class planetas extends Component {
   }
 
   isstring(texto) {
-    if (texto == "") {
+    if (texto === "") {
       return false;
     } else {
       return true;
@@ -54,6 +54,10 @@ export default class planetas extends Component {
             <div className="planeta" key={planeta._id}>
               <div className="nome">{planeta.nome_planeta}</div>
               <p>imagem vem aqui</p>
+              <div className="buttons">
+                <Link to={`planetas/edit/${planeta._id}`}><button>Editar</button></Link>
+                <button onClick={() => this.deletePlaneta(planeta)}>Excluir</button>
+              </div>
               {this.isnumber(planeta.massa_planeta) ? (
                 <div className="dados">Massa: {planeta.massa_planeta} kg</div>
               ) : (
@@ -74,7 +78,7 @@ export default class planetas extends Component {
               ) : (
                   <div className="dados">Composição: desconhecida</div>
                 )}
-                <br/>
+              <br />
               <div className="curiosidade">Curiosidade:</div>
             </div>
           ))}
