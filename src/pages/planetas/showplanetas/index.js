@@ -87,31 +87,3 @@ export default class planetas extends Component {
     );
   }
 }
-/*
-          <table className="striped tabela-geral">
-            <thead>
-              <th>Nome</th>
-              <th>Massa (kg)</th>
-              <th>Área da superfície (km^2)</th>
-              <th>Gravidade</th>
-              <th>Composição</th>
-              <th>Config</th>
-            </thead>
-            <tbody>
-              {planetas.map(planeta => (
-                <tr key={planeta._id}>
-                  <td>{planeta.nome_planeta}</td>
-                  <td>{planeta.massa_planeta}</td>
-                  <td>{planeta.tam_planeta}</td>
-                  <td>{planeta.gravidade_planeta}</td>
-                  <td>{planeta.comp_planeta}</td>
-                  <td>
-                    <Link to={`planetas/edit/${planeta._id}`}><button>Editar</button></Link>
-                    <button onClick={() => this.deletePlaneta(planeta)}>Excluir</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-*/
