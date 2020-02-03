@@ -3,6 +3,10 @@ import "./styles.css";
 import { Link, withRouter } from "react-router-dom";
 import api from "../../../services/api";
 import { login } from "../../../services/auth";
+import styled, { keyframes } from "styled-components";
+import { fadeIn } from "react-animations";
+
+const FadeIn = styled.div`animation: 1s ${keyframes`${fadeIn}`}`;
 
 class Login extends Component {
 
@@ -37,26 +41,28 @@ class Login extends Component {
     render() {
         return (
             <>
-            <div className="tela">
-                <form className="caixa-login"
-                onSubmit={this.handleSingIn}>
-                <h1>Seja bem vindo!</h1>
-                <p>Login</p>
-                <input 
-                type="email" 
-                placeholder="Email"
-                onChange={ e => this.setState({email: e.target.value })}
-                />
-                <p>Senha</p>
-                <input 
-                type="password" 
-                placeholder="Senha"
-                onChange={ e => this.setState({senha: e.target.value })}
-                />
-                <button type="submit">Entrar</button>
-                <p>Não é cadastrado ainda? Inscreva-se <Link className="link" to="/cadastro">aqui</Link></p>
-                </form>
-            </div>
+                <FadeIn>
+                    <div className="tela">
+                        <form className="caixa-login"
+                            onSubmit={this.handleSingIn}>
+                            <h1>Seja bem vindo!</h1>
+                            <p>Login</p>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                onChange={e => this.setState({ email: e.target.value })}
+                            />
+                            <p>Senha</p>
+                            <input
+                                type="password"
+                                placeholder="Senha"
+                                onChange={e => this.setState({ senha: e.target.value })}
+                            />
+                            <button type="submit">Entrar</button>
+                            <p>Não é cadastrado ainda? Inscreva-se <Link className="link" to="/cadastro">aqui</Link></p>
+                        </form>
+                    </div>
+                </FadeIn>
             </>
         )
     }

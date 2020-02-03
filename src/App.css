@@ -1,15 +1,27 @@
 *{
-    background: url("./universe2.jpg") no-repeat fixed;
-    background-size: auto;
+    background-image: url("./universe2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #ffffff;
+    font-weight: bold;
+}
+
+body, html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
 }
 
 #root{
-    min-width: 750px;;
+    min-width: 400px;
+    max-width: 1920px;
+    position: center;
 }
 
 .link{
-    color: yellow;
+    color: white;
 }
 
 div, h1, h2, p, .link, .tela, input, button,
@@ -17,10 +29,6 @@ form, .opcoes, th, table, thead, tbody, tr, td, select{
     background: transparent;
 }
 
-div, p, .link, .tela, input, button, .opcoes{
-    font-size: large;
-    font-weight: bold;
-}
 
 button, .opcoes{
     margin-top: 15px;
@@ -29,7 +37,6 @@ button, .opcoes{
 h1, h2{
     text-align: center;
     margin: 0;
-    padding-top: 50px;
 }
 
 table, td, tr, thead, tbody, th{

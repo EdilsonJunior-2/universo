@@ -1,5 +1,30 @@
+.planetas{
+    margin: 10px 0;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
+}
+
+.planeta{
+    margin-bottom: 5px;
+    padding: 2px 10px;
+    border-left: solid white 2px;
+    border-right: solid white 2px;
+    border-radius: 12px;
+}
+
+.curiosidade, .nome, .dados{
+    min-width: 300px;
+    max-width: 320px;
+}
+
+.nome{
+    text-align: center;
+}
 
 th{
     width: 15%;
 }
+
