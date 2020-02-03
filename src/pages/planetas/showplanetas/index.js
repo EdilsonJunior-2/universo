@@ -3,8 +3,6 @@ import api from "../../../services/api"
 import { Link } from "react-router-dom";
 import "./styles.css";
 
-// import { Container } from './styles';
-
 export default class planetas extends Component {
 
   state = {
