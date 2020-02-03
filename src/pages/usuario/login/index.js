@@ -7,24 +7,26 @@ import { login } from "../../../services/auth";
 class Login extends Component {
 
     state = {
-        email: "",
+        nome: "",
         senha: "",
         erro: ""
     }
 
     handleSingIn = async e => {
         e.preventDefault();
-        const { email, senha } = this.state;
-        if (!email || !senha) {
+        const { nome, senha } = this.state;
+        if (!nome || !senha) {
             console.log("asf")
             this.setState({ erro: "Preencha email e senha para continuar" });
         }
         else {
             try {
                 console.log("kkk");
-                const response = await api.post("/login", { email, senha });
-
+                const response = await api.post("/login", { nome, senha });
+                console.log(response.data)
+                console.log(nome)
                 login(response.data.token);
+                window.localStorage.setItem( 'usuario', nome );
                 this.props.history.push("/home");
             } catch (err) {
                 this.setState({
@@ -43,9 +45,9 @@ class Login extends Component {
                         <h1>Seja bem vindo!</h1>
                         <p>Login</p>
                         <input
-                            type="email"
-                            placeholder="Email"
-                            onChange={e => this.setState({ email: e.target.value })}
+                            type="text"
+                            placeholder="Usuario"
+                            onChange={e => this.setState({ nome: e.target.value })}
                         />
                         <p>Senha</p>
                         <input

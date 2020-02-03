@@ -3,11 +3,15 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 
 export default class Home extends Component {
+
+    state = {
+        nome: window.localStorage.usuario
+    }
     render() {
         return (
             <>
                 <div className="tela">
-                    <h2>Seja bem vindo, Usuário!</h2>
+                    <h2>Seja bem vindo, {this.state.nome}!</h2>
                     <div className="botoes">
                         <Link to="/galaxias" className="opcoes">Galáxias</Link>
                         <Link to="/sistemasPlanetarios" className="opcoes">Sistemas Planetários</Link>

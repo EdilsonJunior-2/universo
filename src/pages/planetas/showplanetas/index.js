@@ -79,7 +79,11 @@ export default class planetas extends Component {
                   <div className="dados">Composição: desconhecida</div>
                 )}
               <br />
-              <div className="curiosidade">Curiosidade:</div>
+              {this.isstring(planeta.curiosidade_planeta) ? (
+                <div className="dados">Curiosidade: {planeta.curiosidade_planeta}</div>
+              ) : (
+                  <div className="dados">Não há nada de mais relevante a se falar sobre esse planeta</div>
+                )}
             </div>
           ))}
 

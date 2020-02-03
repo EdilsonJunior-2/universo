@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { isAuthenticated } from "./services/auth";
 import Login from "./pages/usuario/login";
 import Main from "./pages/main";
 import Cadastro from "./pages/usuario/cadastro";
@@ -20,31 +21,45 @@ import GigantesAzuis from "./pages/gigantesAzuis";
 import GigantesVermelhas from "./pages/gigantesVermelhas";
 import EstrelasBinarias from "./pages/estrelasBinarias";
 
-export default class Routes extends Component{
 
-    render(){
-        return(
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            isAuthenticated() ? (
+                <Component {...props} />
+            ) : (
+                    <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+                )
+        }
+    />
+);
+
+export default class Routes extends Component {
+
+    render() {
+        return (
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Main} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/cadastro" component={Cadastro} />
-                    <Route exact path="/home" component={Home} />
-                    <Route exact path="/galaxias" component={Galaxias} />
-                    <Route exact path="/estrelas" component={Estrelas} />
-                    <Route exact path="/sistemasPlanetarios" component={SistemasPlanetarios} />
-                    <Route exact path="/planetas" component={Planetas} />
-                    <Route exact path="/planetas/add" component={AddPlaneta} />
-                    <Route exact path="/planetas/edit/:id" component={EditPlaneta} />
-                    <Route exact path="/satelitesNaturais" component={SatelitesNaturais} />
-                    <Route exact path="/satelitesNaturais/add" component={AddSatelite} />
-                    <Route exact path="/satelitesNaturais/edit/:id" component={EditSatelite} />
-                    <Route exact path="/anasBrancas" component={AnasBrancas} />
-                    <Route exact path="/anasVermelhas" component={AnasVermelas} />
-                    <Route exact path="/gigantesAzuis" component={GigantesAzuis} />
-                    <Route exact path="/gigantesVermelhas" component={GigantesVermelhas} />
-                    <Route exact path="/estrelasBinarias" component={EstrelasBinarias} />
-
+                    <PrivateRoute exact path="/login" component={Login} />
+                    <PrivateRoute exact path="/cadastro" component={Cadastro} />
+                    <PrivateRoute exact path="/home" component={Home} />
+                    <PrivateRoute exact path="/galaxias" component={Galaxias} />
+                    <PrivateRoute exact path="/estrelas" component={Estrelas} />
+                    <PrivateRoute exact path="/sistemasPlanetarios" component={SistemasPlanetarios} />
+                    <PrivateRoute exact path="/planetas" component={Planetas} />
+                    <PrivateRoute exact path="/planetas/add" component={AddPlaneta} />
+                    <PrivateRoute exact path="/planetas/edit/:id" component={EditPlaneta} />
+                    <PrivateRoute exact path="/satelitesNaturais" component={SatelitesNaturais} />
+                    <PrivateRoute exact path="/satelitesNaturais/add" component={AddSatelite} />
+                    <PrivateRoute exact path="/satelitesNaturais/edit/:id" component={EditSatelite} />
+                    <PrivateRoute exact path="/anasBrancas" component={AnasBrancas} />
+                    <PrivateRoute exact path="/anasVermelhas" component={AnasVermelas} />
+                    <PrivateRoute exact path="/gigantesAzuis" component={GigantesAzuis} />
+                    <PrivateRoute exact path="/gigantesVermelhas" component={GigantesVermelhas} />
+                    <PrivateRoute exact path="/estrelasBinarias" component={EstrelasBinarias} />
+                    <Route path="*" component={() => <h1>Page not found</h1>} />
                 </Switch>
             </BrowserRouter>
         )
