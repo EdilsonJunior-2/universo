@@ -86,7 +86,6 @@ export default class planetas extends Component {
                 )}
             </div>
           ))}
-
         </div>
         <div className="botao-adicionar-geral"><Link to="/planetas/add">Adicionar Planeta</Link></div>
       </>
