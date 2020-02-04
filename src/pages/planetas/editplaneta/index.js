@@ -56,7 +56,6 @@ export default class editplaneta extends Component {
         console.log(this.state.id);
 
         this.props.history.push("/planetas")
-
     }
 
     render() {
