@@ -60,7 +60,6 @@ export default class editplaneta extends Component {
     }
 
     render() {
-
         return (
             <>
                 <div className="tela">
