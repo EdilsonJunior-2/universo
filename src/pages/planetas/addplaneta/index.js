@@ -10,7 +10,8 @@ export default class addplaneta extends Component {
         massa_planeta: null,
         gravidade_planeta: null,
         comp_planeta: "",
-        curiosidade_planeta: ""
+        curiosidade_planeta: "",
+        img_planeta: ""
     }
 
     handleSubmit = async e => {
@@ -22,7 +23,8 @@ export default class addplaneta extends Component {
             massa_planeta: this.state.massa_planeta,
             gravidade_planeta: this.state.gravidade_planeta,
             comp_planeta: this.state.comp_planeta,
-            curiosidade_planeta: this.state.curiosidade_planeta
+            curiosidade_planeta: this.state.curiosidade_planeta,
+            img_planeta: this.state.img_planeta
         })
 
         this.props.history.push("/planetas")
@@ -87,6 +89,13 @@ export default class addplaneta extends Component {
                             name="curiosidade_planeta"
                             onChange={this.handleChange}
                             value={this.state.curiosidade_planeta}
+                        />
+                        <p>Imagem</p>
+                        <textarea type="text"
+                            placeholder="Imagem"
+                            name="img_planeta"
+                            onChange={this.handleChange}
+                            value={this.state.img_planeta}
                         />
 
                         <button type="submit">Enviar</button>
