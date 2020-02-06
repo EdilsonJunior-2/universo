@@ -5,11 +5,11 @@ import React, { Component } from 'react';
 export default class anasBrancas extends Component {
   render() {
     return (
-    <>
-    <div className="tabela">
-    Tabela de Anãs Brancas 
+      <>
+        <div className="tabela">
+          Tabela de Anãs Brancas
     </div>
-    </>
-        );
+      </>
+    );
   }
 }
