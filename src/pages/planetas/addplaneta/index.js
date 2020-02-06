@@ -91,7 +91,7 @@ export default class addplaneta extends Component {
                             value={this.state.curiosidade_planeta}
                         />
                         <p>Imagem</p>
-                        <textarea type="text"
+                        <input type="text"
                             placeholder="Imagem"
                             name="img_planeta"
                             onChange={this.handleChange}

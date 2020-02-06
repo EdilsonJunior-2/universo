@@ -12,7 +12,8 @@ export default class editplaneta extends Component {
         massa_planeta: null,
         gravidade_planeta: null,
         comp_planeta: "",
-        curiosidade_planeta: ""
+        curiosidade_planeta: "",
+        img_planeta: ""
     }
 
     componentDidMount() {
@@ -29,7 +30,8 @@ export default class editplaneta extends Component {
             massa_planeta: planetas.massa_planeta,
             gravidade_planeta: planetas.gravidade_planeta,
             comp_planeta: planetas.comp_planeta,
-            curiosidade_planeta: planetas.curiosidade_planeta
+            curiosidade_planeta: planetas.curiosidade_planeta,
+            img_planeta: planetas.img_planeta
         })
 
         console.log(this.state.id);
@@ -50,7 +52,8 @@ export default class editplaneta extends Component {
             massa_planeta: this.state.massa_planeta,
             gravidade_planeta: this.state.gravidade_planeta,
             comp_planeta: this.state.comp_planeta,
-            curiosidade_planeta: this.state.curiosidade_planeta
+            curiosidade_planeta: this.state.curiosidade_planeta,
+            img_planeta: this.state.img_planeta
         })
 
         console.log(this.state.id);
@@ -112,7 +115,13 @@ export default class editplaneta extends Component {
                             onChange={this.handleChange}
                             value={this.state.curiosidade_planeta}
                         />
-
+                        <p>Imagem</p>
+                        <input type="text"
+                            placeholder="Imagem"
+                            name="img_planeta"
+                            onChange={this.handleChange}
+                            value={this.state.img_planeta}
+                        />
                         <button type="submit">Enviar</button>
                     </form>
 

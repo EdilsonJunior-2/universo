@@ -47,7 +47,7 @@ h1, h2{
     justify-content: center;
 }
 
-.botao-adicionar-geral{
+.botao-adicionar-geral, .botao-home{
     margin-top: 20px;
     width: 100%;
     display: flex;

@@ -53,7 +53,11 @@ export default class planetas extends Component {
           {planetas.map(planeta => (
             <div className="planeta" key={planeta._id}>
               <div className="nome">{planeta.nome_planeta}</div>
-              <p>imagem vem aqui</p>
+              {this.isstring(planeta.img_planeta) ? (
+              <img src={planeta.img_planeta}/>
+              ) : (
+                  <div className="dados">Imagem: desconhecida</div>
+                )}
               <div className="buttons">
                 <Link to={`planetas/edit/${planeta._id}`}><button>Editar</button></Link>
                 <button onClick={() => this.deletePlaneta(planeta)}>Excluir</button>
@@ -88,6 +92,7 @@ export default class planetas extends Component {
           ))}
         </div>
         <div className="botao-adicionar-geral"><Link to="/planetas/add">Adicionar Planeta</Link></div>
+        <div className="botao-home"><Link to="/home">Voltar</Link></div>
       </>
     );
   }
