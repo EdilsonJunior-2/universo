@@ -9,6 +9,14 @@ input[type=number] {
   -moz-appearance:textfield;
 }
 
+#select{
+  width: 250px;
+}
+
+.options{
+  color: black;
+}
+
 textarea{
   width: 250px;
   height: 100px;

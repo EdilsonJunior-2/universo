@@ -1,80 +1,83 @@
 import React, { Component } from 'react';
-import api from "../../../services/api";
+import api from "../../../services/api"
 import { Link } from "react-router-dom";
+import "./styles.css";
 
-// import { Container } from './styles';
-
-export default class satelitesNaturais extends Component {
+export default class satelites extends Component {
 
   state = {
-    satelitesNaturais: []
+    satelites: []
   };
 
   componentDidMount() {
-    this.loadSatelites();
+    this.loadsatelites();
   }
 
-
-  loadSatelites = async () => {
+  loadsatelites = async () => {
     const response = await api.get(`/satelites`);
     const satelites = response.data.satelites;
-    console.log(response.data);
-    this.setState({ satelitesNaturais: satelites });
+    console.log(response.data.satelites);
+    this.setState({ satelites: satelites });
   }
 
-  deleteSatelite = async (satelite) => {
-    satelite = await api.get(`/satelites/del/${satelite._id}`);
+  deletesatelite = async (satelite) => {
+    satelite = await api.delete(`/satelites/del/${satelite._id}`);
     document.location.reload();
+    console.log(satelite)
+  }
+
+  isnumber(tamanho) {
+    if (tamanho === null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  isstring(texto) {
+    if (texto === "") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   render() {
-    const { satelitesNaturais } = this.state;
+    const { satelites } = this.state;
     return (
       <>
         <div className="titulo-geral">
-          Tabela de Satélites
+          Satelites Naturais
         </div>
-        <div className="tabela">
-          <table className="striped tabela-geral">
-            <thead>
-              <th>Nome</th>
-              <th>Massa (kg)</th>
-              <th>Área da superfície (km^2)</th>
-              <th>Composição</th>
-              <th>Config</th>
-            </thead>
-            <tbody>
-              {satelitesNaturais.map(satelite => (
-                <tr key={satelite._id}>
-                  <td>{satelite.nome_SN}</td>
-                  <td>{satelite.massa_SN}</td>
-                  <td>{satelite.tam_SN}</td>
-                  <td>{satelite.comp_SN}</td>
-                  <td>
-                    <Link to={`satelitesNaturais/edit/${satelite._id}`}><button>Editar</button></Link>
-                    <button onClick={() => this.deleteSatelite(satelite)}>Excluir</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="satelites">
+          {satelites.map(satelite => (
+            <div className="satelite" key={satelite._id}>
+              <div className="nome">{satelite.nome_SN}</div>
+              <div className="buttons">
+                <Link to={`satelitesnaturais/edit/${satelite._id}`}><button>Editar</button></Link>
+                <button onClick={() => this.deletesatelite(satelite)}>Excluir</button>
+              </div>
+              {this.isnumber(satelite.tam_SN) ? (
+                <div className="dados">Tamanho: {satelite.tam_SN}</div>
+              ) : (
+                  <div className="dados">Tamanho: desconhecido</div>
+                )}
+              {this.isnumber(satelite.massa_SN) ? (
+                <div className="dados">Massa: {satelite.massa_SN}</div>
+              ) : (
+                  <div className="dados">Massa: desconhecida</div>
+                )}
+              {this.isstring(satelite.comp_SN) ? (
+                <div className="dados">Composição: {satelite.comp_SN}</div>
+              ) : (
+                  <div className="dados">Composição: desconhecido</div>
+                )}
+            </div>
+          ))}
         </div>
-       <div className="botao-adicionar-geral"><Link to="/satelitesNaturais/add">Adicionar Satélite</Link></div> 
+        <div className="botao-adicionar-geral"><Link to="/satelitesnaturais/add">Adicionar satelite</Link></div>
+        <div className="botao-home"><Link to="/home">Voltar</Link></div>
       </>
     );
   }
 }
-
-/*       {planetas.map(planeta => (
-         <tr key={planeta._id}>
-           <td>{planeta.nome_planeta}</td>
-           <td>{planeta.massa_planeta}</td>
-           <td>{planeta.tam_planeta}</td>
-           <td>{planeta.gravidade_planeta}</td>
-           <td>{planeta.comp_planeta}</td>
-           <td>
-             <Link to={`planetas/edit/${planeta._id}`}><button>Editar</button></Link>
-             <button onClick={() => this.deletePlaneta(planeta)}>Excluir</button>
-           </td>
-         </tr>
-       ))}*/

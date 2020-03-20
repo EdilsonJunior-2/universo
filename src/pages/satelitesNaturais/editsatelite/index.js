@@ -38,7 +38,7 @@ export default class editSatelite extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        await api.post(`/satelites/edit/${this.state.id}`, {
+        await api.put(`/satelites/edit/${this.state.id}`, {
             nome_SN: this.state.nome_satelite,
             tam_SN: this.state.tam_satelite,
             massa_SN: this.state.massa_satelite,

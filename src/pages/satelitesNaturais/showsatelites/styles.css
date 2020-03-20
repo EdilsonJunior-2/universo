@@ -1,4 +1,4 @@
-.planetas{
+.satelites{
     margin: 10px 0;
     padding: 10px 30px;
     display: flex;
@@ -7,7 +7,7 @@
     flex-wrap: wrap;
 }
 
-.planeta{
+.satelite{
     margin-bottom: 5px;
     padding: 2px 10px;
     border-left: solid white 2px;
@@ -20,7 +20,7 @@
     justify-content: center;
 }
 
-.curiosidade, .nome, .dados{
+.nome, .dados{
     min-width: 300px;
     max-width: 320px;
 }

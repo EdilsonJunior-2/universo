@@ -20,7 +20,7 @@ export default class Home extends Component {
                         <Link to="/estrelas" className="opcoes">Estrelas</Link>
                         <Link to="anasVermelhas" className="opcoes">Anãs Vermelhas</Link>
                         <Link to="anasBrancas" className="opcoes">Anãs Brancas</Link>
-                        <Link to="/estrelasBinarias" className="opcoes">Estrelas Bináias</Link>
+                        <Link to="/estrelasBinarias" className="opcoes">Estrelas Binárias</Link>
                         <Link to="/gigantesAzuis" className="opcoes">Gigantes Azuis</Link>
                         <Link to="/gigantesVermelhas" className="opcoes">Gigantes Vermelhas</Link>
                     </div>
