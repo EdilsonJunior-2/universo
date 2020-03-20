@@ -21,7 +21,7 @@ export default class planetas extends Component {
   }
 
   deletePlaneta = async (planeta) => {
-    planeta = await api.get(`/planetas/del/${planeta._id}`);
+    planeta = await api.delete(`/planetas/del/${planeta._id}`);
     document.location.reload();
     console.log(planeta)
   }
@@ -53,7 +53,6 @@ export default class planetas extends Component {
           {planetas.map(planeta => (
             <div className="planeta" key={planeta._id}>
               <div className="nome">{planeta.nome_planeta}</div>
-              <p>imagem vem aqui</p>
               <div className="buttons">
                 <Link to={`planetas/edit/${planeta._id}`}><button>Editar</button></Link>
                 <button onClick={() => this.deletePlaneta(planeta)}>Excluir</button>
@@ -88,6 +87,7 @@ export default class planetas extends Component {
           ))}
         </div>
         <div className="botao-adicionar-geral"><Link to="/planetas/add">Adicionar Planeta</Link></div>
+        <div className="botao-home"><Link to="/home">Voltar</Link></div>
       </>
     );
   }

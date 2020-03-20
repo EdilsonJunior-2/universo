@@ -25,7 +25,7 @@ body{
 }
 
 div, h1, h2, p, .link, .tela, input, button,
-form, .opcoes, th, table, thead, tbody, tr, td, select{
+form, .opcoes, th, table, thead, tbody, tr, td{
     background: transparent;
 }
 
@@ -47,7 +47,7 @@ h1, h2{
     justify-content: center;
 }
 
-.botao-adicionar-geral{
+.botao-adicionar-geral, .botao-home{
     margin-top: 20px;
     width: 100%;
     display: flex;

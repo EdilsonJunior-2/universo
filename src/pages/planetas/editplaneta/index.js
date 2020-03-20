@@ -44,7 +44,7 @@ export default class editplaneta extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         console.log("teste");
-        await api.post(`/planetas/edit/${this.state.id}`, {
+        await api.put(`/planetas/edit/${this.state.id}`, {
             nome_planeta: this.state.nome_planeta,
             tam_planeta: this.state.tam_planeta,
             massa_planeta: this.state.massa_planeta,
@@ -112,7 +112,6 @@ export default class editplaneta extends Component {
                             onChange={this.handleChange}
                             value={this.state.curiosidade_planeta}
                         />
-
                         <button type="submit">Enviar</button>
                     </form>
 
