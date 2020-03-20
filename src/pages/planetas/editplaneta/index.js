@@ -12,11 +12,21 @@ export default class editplaneta extends Component {
         massa_planeta: null,
         gravidade_planeta: null,
         comp_planeta: "",
-        curiosidade_planeta: ""
+        satelites: [],
+        id_satelites: []
     }
 
+    
     componentDidMount() {
         this.selecionarPlaneta();
+        this.loadSatelites();
+    }
+
+    loadSatelites = async () => {
+        const response = await api.get(`/satelites`);
+        const satelites = response.data.satelites;
+        console.log(response.data.satelites);
+        this.setState({ satelites: satelites });
     }
 
     selecionarPlaneta = async () => {
@@ -29,7 +39,7 @@ export default class editplaneta extends Component {
             massa_planeta: planetas.massa_planeta,
             gravidade_planeta: planetas.gravidade_planeta,
             comp_planeta: planetas.comp_planeta,
-            curiosidade_planeta: planetas.curiosidade_planeta
+            id_satelites: planetas.id_satelites
         })
 
         console.log(this.state.id);
@@ -50,7 +60,7 @@ export default class editplaneta extends Component {
             massa_planeta: this.state.massa_planeta,
             gravidade_planeta: this.state.gravidade_planeta,
             comp_planeta: this.state.comp_planeta,
-            curiosidade_planeta: this.state.curiosidade_planeta
+            id_satelites: this.state.id_satelites
         })
 
         console.log(this.state.id);
@@ -59,6 +69,7 @@ export default class editplaneta extends Component {
     }
 
     render() {
+        const { satelites } = this.state;
         return (
             <>
                 <div className="tela">
@@ -105,13 +116,19 @@ export default class editplaneta extends Component {
                             onChange={this.handleChange}
                             value={this.state.comp_planeta}
                         />
-                        <p>Curiosidade</p>
-                        <textarea type="text"
-                            placeholder="Curiosidade"
-                            name="curiosidade_planeta"
-                            onChange={this.handleChange}
-                            value={this.state.curiosidade_planeta}
-                        />
+
+                        <p>Satélites</p>
+                        <select
+                            id="select"
+                            defaultValue={null}
+                            onChange={e => this.setState({
+                                satelite_selecionado: e.target.value
+                            })}
+                        >
+                            {satelites.map(satelite => (
+                                <option className="options" value="satelite._id">{satelite.nome_SN}</option>
+                            ))}
+                        </select>
                         <button type="submit">Enviar</button>
                     </form>
 

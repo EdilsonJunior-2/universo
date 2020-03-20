@@ -42,6 +42,14 @@ export default class planetas extends Component {
     }
   }
 
+  isarray(lst) {
+    if (lst === []) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
     const { planetas } = this.state;
     return (
@@ -77,12 +85,12 @@ export default class planetas extends Component {
               ) : (
                   <div className="dados">Composição: desconhecida</div>
                 )}
-              <br />
-              {this.isstring(planeta.curiosidade_planeta) ? (
-                <div className="dados">Curiosidade: {planeta.curiosidade_planeta}</div>
+              {this.isarray(planeta.id_satelites) ? (
+                <div className="dados">Satélites: {planeta.id_satelites}</div>
               ) : (
-                  <div className="dados">Não há nada de mais relevante a se falar sobre esse planeta</div>
-                )}
+                <div className="dados">Satélites: desconhecidos</div>
+              )}
+              <br />
             </div>
           ))}
         </div>
