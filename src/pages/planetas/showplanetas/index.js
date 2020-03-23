@@ -93,18 +93,6 @@ export default class planetas extends Component {
               ) : (
                   <div className="dados">Composição: desconhecida</div>
                 )}
-              {this.isarray(planeta.id_satelites) ? (
-                <div className="dados">Satélites: {planeta.id_satelites}</div>
-              ) : (
-                <div className="dados">Satélites: desconhecidos</div>
-              )}
-              {/*
-              {this.possuisn(planeta.possui_SN) ? (
-                <div className="dados">Satélites: possui</div>
-              ) : (
-                <div className="dados">Satélites: não possui</div>
-              )}
-              */}
               <br />
             </div>
           ))}
