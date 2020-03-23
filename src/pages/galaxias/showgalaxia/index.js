@@ -56,8 +56,6 @@ export default class galaxias extends Component {
                                 <Link to={`galaxias/edit/${galaxia._id}`}><button>Editar</button></Link>
                                 <button onClick={() => this.deleteGalaxia(galaxia)}>Excluir</button>
                             </div>
-                            <div className="dados">Sistema: {galaxias.sistemas}</div>
-                            <div className="dados">Quantidade de Sistemas: {galaxia.qtd_sistemas}</div>
                             {this.isnumber(galaxia.dist_terra) ? (
                                 <div className="dados">Distancia pra Terra: {galaxia.dist_terra}</div>
                             ) : (

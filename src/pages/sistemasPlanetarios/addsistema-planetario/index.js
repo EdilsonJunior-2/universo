@@ -34,8 +34,7 @@ export default class addsistemaplanetario extends Component {
         this.setState({ planetas: planetas });
     }
 
-    handleSubmit = async e => {
-        e.preventDefault();
+    handleSubmit = async () => {
         console.log("teste");
         await api.post("/sistemaPlanetario", {
             nome_sistema: this.state.nome_sistema,
@@ -46,8 +45,15 @@ export default class addsistemaplanetario extends Component {
         this.props.history.push("/sistemasPlanetarios")
     }
 
-    adicionarPlaneta() {
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+        console.log(e.target.value);
+    }
 
+    adicionarPlaneta() {
+        this.setState({ id_planetas: [this.state.planeta_selecionado, ...this.state.id_planetas]})
+        console.log(this.id_planetas);
+        /*
         var existe = false;
 
         for(var posicao = 0; posicao < this.id_planetas.length; posicao++) {
@@ -61,10 +67,13 @@ export default class addsistemaplanetario extends Component {
             this.setState({ id_planetas: [this.state.planeta_selecionado, ...this.state.id_planetas]})
             console.log(this.id_planetas);
         }
+        */
     }
 
     adicionarEstrela() {
-
+        this.setState({ id_estrelas: [this.state.estrela_selecionada, ...this.state.id_estrelas]})
+        console.log(this.id_estrelas);
+        /*
         var existe = false;
 
         for(var posicao = 0; posicao < this.id_estrelas.length; posicao++) {
@@ -78,7 +87,7 @@ export default class addsistemaplanetario extends Component {
             this.setState({ id_estrelas: [this.state.estrela_selecionada, ...this.state.id_estrelas]})
             console.log(this.id_estrelas);
         }
-
+        */
     }
 
     render() {
@@ -87,8 +96,8 @@ export default class addsistemaplanetario extends Component {
         return (
             <>
                 <div className="tela">
-                    <form className="caixa-cadastro"
-                        onSubmit={this.handleSubmit}>
+                    <div className="caixa-cadastro"
+                     >
                         <h1>Adicionar Sistema Planetário</h1>
 
                         <p>Nome do Sistema</p>
@@ -116,7 +125,7 @@ export default class addsistemaplanetario extends Component {
                             })}
                         >
                             {planetas.map(planeta => (
-                                <option className="options" value="planeta._id">{planeta.nome_planeta}</option>
+                                <option className="options" value={planeta._id}>{planeta.nome_planeta}</option>
                             ))}
                         </select>
                         <button onClick={() => this.adicionarPlaneta()}> Adicionar </button>
@@ -130,13 +139,13 @@ export default class addsistemaplanetario extends Component {
                             })}
                         >
                             {estrelas.map(estrela => (
-                                <option className="options" value="estrela._id">{estrela.nome_estrela}</option>
+                                <option className="options" value={estrela._id}>{estrela.nome_estrela}</option>
                             ))}
                         </select>
                         <button onClick={() => this.adicionarEstrela()}> Adicionar </button>
 
-                        <button type="submit">Enviar</button>
-                    </form>
+                        <button type="submit" onClick={() => this.handleSubmit()}>Enviar</button>
+                    </div>
 
                 </div>
             </>

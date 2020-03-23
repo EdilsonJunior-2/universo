@@ -21,7 +21,7 @@ export default class sistemasPlanetarios extends Component {
   }
 
   deleteSistemaPlanetario = async (sistemaPlanetario) => {
-    sistemaPlanetario = await api.delete(`/sistemasPlanetarios/del/${sistemaPlanetario._id}`);
+    sistemaPlanetario = await api.delete(`/sistemaPlanetario/del/${sistemaPlanetario._id}`);
     document.location.reload();
     console.log(sistemaPlanetario)
   }
@@ -49,13 +49,13 @@ export default class sistemasPlanetarios extends Component {
         <div className="titulo-geral">
           Sistemas Planetários
         </div>
-        <div className="sistemasPlanetarios">
-            {sistemasPlanetarios.map(sistemaPlanetario => (
-                <div className="nome">{sistemaPlanetario.nome_sistema}</div>
-            ))}
-        </div>
-        <div className="botao-adicionar-geral"><Link to="/planetas/add">Adicionar Planeta</Link></div>
-        <div className="botao-home"><Link to="/home">Voltar</Link></div>
+        <div className="sistemaPlanetario">
+                    {sistemasPlanetarios.map(sistemaPlanetario => (
+                        <div className="sistemaPlanetario" key={sistemaPlanetario._id}>
+                            <div className="nome">{sistemaPlanetario.nome_sistema}</div>
+                        </div>
+                    ))}
+                </div>
       </>
     );
   }

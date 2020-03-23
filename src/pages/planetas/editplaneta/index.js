@@ -71,23 +71,6 @@ export default class editplaneta extends Component {
     adicionarSatelite() {
         this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
         console.log(this.id_satelites);
-        /*
-
-        var existe = false;
-
-        for(var posicao = 0; posicao < this.id_satelites.length; posicao++) {
-            if(this.id_satelites[posicao] === this.satelite_selecionado) {
-                existe = true;
-                break;
-            }
-        }
-
-        if(existe === false) {
-            this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
-            console.log(this.id_satelites);
-        }
-        */
-
     }
 
     render() {
@@ -148,11 +131,11 @@ export default class editplaneta extends Component {
                             })}
                         >
                             {satelites.map(satelite => (
-                                <option className="options" value="satelite._id">{satelite.nome_SN}</option>
+                                <option className="options" value={satelite._id}>{satelite.nome_SN}</option>
                             ))}
                         </select>
                         <button onClick={() => this.adicionarSatelite()}> Adicionar </button>
-                        <button type="submit">Enviar</button>
+                        <button type="submit" onClick={() => this.handleSubmit()}>Enviar</button>
                     </form>
 
                 </div>

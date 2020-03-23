@@ -32,6 +32,7 @@ export default class addplaneta extends Component {
         await api.post("/planeta", {
             nome_planeta: this.state.nome_planeta,
             tam_planeta: this.state.tam_planeta,
+            satelite_selecionado: this.state.satelite_selecionado,
             massa_planeta: this.state.massa_planeta,
             gravidade_planeta: this.state.gravidade_planeta,
             comp_planeta: this.state.comp_planeta,
@@ -127,7 +128,7 @@ export default class addplaneta extends Component {
                             })}
                         >
                             {satelites.map(satelite => (
-                                <option className="options" value="satelite._id">{satelite.nome_SN}</option>
+                                <option className="options" value={satelite._id}>{satelite.nome_SN}</option>
                             ))}
                         </select>
                         <button onClick={() => this.adicionarSatelite()}> Adicionar </button>
