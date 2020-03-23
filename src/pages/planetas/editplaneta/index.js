@@ -54,7 +54,7 @@ export default class editplaneta extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         console.log("teste");
-        await api.put(`/planetas/edit/${this.state.id}`, {
+        await api.put(`/planeta/edit/${this.state.id}`, {
             nome_planeta: this.state.nome_planeta,
             tam_planeta: this.state.tam_planeta,
             massa_planeta: this.state.massa_planeta,
@@ -66,6 +66,28 @@ export default class editplaneta extends Component {
         console.log(this.state.id);
 
         this.props.history.push("/planetas")
+    }
+
+    adicionarSatelite() {
+        this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
+        console.log(this.id_satelites);
+        /*
+
+        var existe = false;
+
+        for(var posicao = 0; posicao < this.id_satelites.length; posicao++) {
+            if(this.id_satelites[posicao] === this.satelite_selecionado) {
+                existe = true;
+                break;
+            }
+        }
+
+        if(existe === false) {
+            this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
+            console.log(this.id_satelites);
+        }
+        */
+
     }
 
     render() {
@@ -129,6 +151,7 @@ export default class editplaneta extends Component {
                                 <option className="options" value="satelite._id">{satelite.nome_SN}</option>
                             ))}
                         </select>
+                        <button onClick={() => this.adicionarSatelite()}> Adicionar </button>
                         <button type="submit">Enviar</button>
                     </form>
 

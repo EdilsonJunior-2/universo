@@ -21,7 +21,7 @@ export default class satelites extends Component {
   }
 
   deletesatelite = async (satelite) => {
-    satelite = await api.delete(`/satelites/del/${satelite._id}`);
+    satelite = await api.delete(`/satelite/del/${satelite._id}`);
     document.location.reload();
     console.log(satelite)
   }

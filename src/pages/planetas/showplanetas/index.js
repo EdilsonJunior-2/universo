@@ -21,7 +21,7 @@ export default class planetas extends Component {
   }
 
   deletePlaneta = async (planeta) => {
-    planeta = await api.delete(`/planetas/del/${planeta._id}`);
+    planeta = await api.delete(`/planeta/del/${planeta._id}`);
     document.location.reload();
     console.log(planeta)
   }
@@ -39,6 +39,14 @@ export default class planetas extends Component {
       return false;
     } else {
       return true;
+    }
+  }
+
+  possuisn(value) {
+    if (value === true) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -85,11 +93,18 @@ export default class planetas extends Component {
               ) : (
                   <div className="dados">Composição: desconhecida</div>
                 )}
+              {/*
               {this.isarray(planeta.id_satelites) ? (
                 <div className="dados">Satélites: {planeta.id_satelites}</div>
               ) : (
                 <div className="dados">Satélites: desconhecidos</div>
               )}
+              {this.possuisn(planeta.possui_SN) ? (
+                <div className="dados">Satélites: possui</div>
+              ) : (
+                <div className="dados">Satélites: não possui</div>
+              )}
+              */}
               <br />
             </div>
           ))}

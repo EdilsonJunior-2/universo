@@ -13,7 +13,7 @@ export default class addsatelite extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        await api.post("/satelites", {
+        await api.post("/satelite", {
             nome_SN: this.state.nome_satelite,
             tam_SN: this.state.tam_satelite,
             massa_SN: this.state.massa_satelite,

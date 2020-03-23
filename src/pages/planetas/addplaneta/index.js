@@ -29,7 +29,7 @@ export default class addplaneta extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         console.log("teste");
-        await api.post("/planetas", {
+        await api.post("/planeta", {
             nome_planeta: this.state.nome_planeta,
             tam_planeta: this.state.tam_planeta,
             massa_planeta: this.state.massa_planeta,
@@ -48,6 +48,9 @@ export default class addplaneta extends Component {
     };
 
     adicionarSatelite() {
+        this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
+        console.log(this.id_satelites);
+        /*
 
         var existe = false;
 
@@ -62,6 +65,7 @@ export default class addplaneta extends Component {
             this.setState({ id_satelites: [this.state.satelite_selecionado, ...this.state.id_satelites]})
             console.log(this.id_satelites);
         }
+        */
 
     }
 
