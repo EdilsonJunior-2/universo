@@ -15,8 +15,8 @@ export default class sistemasPlanetarios extends Component {
 
   loadSistemasPlanetarios = async () => {
     const response = await api.get(`/sistemasPlanetarios`);
-    const sistemasPlanetarios = response.data.sistemasPlanetarios;
-    console.log(response.data.sistemasPlanetarios);
+    const sistemasPlanetarios = response.data.sistemas_planetarios;
+    console.log(response.data);
     this.setState({ sistemasPlanetarios: sistemasPlanetarios });
   }
 
@@ -53,6 +53,8 @@ export default class sistemasPlanetarios extends Component {
                     {sistemasPlanetarios.map(sistemaPlanetario => (
                         <div className="sistemaPlanetario" key={sistemaPlanetario._id}>
                             <div className="nome">{sistemaPlanetario.nome_sistema}</div>
+                            <div className="qtd">Quantidade de planetas pertencentes: {sistemaPlanetario.qtd_estrelas}</div>
+                            <div className="qtd">Quantidade de estrelas pertencentes: {sistemaPlanetario.qtd_estrelas}</div>
                         </div>
                     ))}
                 </div>
