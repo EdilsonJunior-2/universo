@@ -77,7 +77,7 @@ export default class planetas extends Component {
                 <div className="dados">Massa: {planeta.massa_planeta} kg</div>
               ) : (
                   <div className="dados">Massa: desconhecida</div>
-                )}
+              )}
               {this.isnumber(planeta.tam_planeta) ? (
                 <div className="dados">Área da superfície: {planeta.tam_planeta} km^2</div>
               ) : (

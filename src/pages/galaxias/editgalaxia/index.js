@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import "./styles.css";
-import api from '../../../services/api';
+import api from "../../../services/api";
 
-export default class addgalaxia extends Component {
+// import { Container } from './styles';
+
+export default class editgalaxia extends Component {
 
     state = {
         nome_galaxia: "",
@@ -12,7 +13,9 @@ export default class addgalaxia extends Component {
         dist_terra: null
     }
 
+    
     componentDidMount() {
+        this.selecionarGalaxia();
         this.loadSistemasPlanetarios();
     }
 
@@ -23,22 +26,40 @@ export default class addgalaxia extends Component {
         this.setState({ sistemasPlanetarios: sistemasPlanetarios });
     }
 
-    handleSubmit = async e => {
-        e.preventDefault();
-        console.log("teste");
-        await api.post("/sistemaPlanetario", {
-            nome_galaxia: this.state.nome_galaxia,
-            id_sistemas: this.state.id_sistemas,
-            sistema_selecionado: this.state.sistema_selecionado,
-            dist_terra: this.state.dist_terra
+    selecionarGalaxia = async () => {
+        const response = await api.get(`/galaxias`);
+        const galaxias = response.data.galaxias.find(galaxias => galaxias._id === this.props.match.params.id);
+        this.setState({
+            id: galaxias._id,
+            nome_galaxia: galaxias.nome_galaxia,
+            id_sistemas: galaxias.id_sistemas,
+            sistema_selecionado: galaxias.sistema_selecionado,
+            dist_terra: galaxias.dist_terra
         })
-        this.props.history.push("/sistemasplanetarios")
+
+        console.log(this.state.id);
     }
+
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
         console.log(e.target.value);
     };
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        console.log("teste");
+        await api.put(`/galaxia/edit/${this.state.id}`, {
+            nome_galaxia: this.state.nome_galaxia,
+            id_sistemas: this.state.id_sistemas,
+            sistema_selecionado: this.state.sistema_selecionado,
+            dist_terra: this.state.dist_terra
+        })
+
+        console.log(this.state.id);
+
+        this.props.history.push("/galaxias")
+    }
 
     adicionarSistema() {
         this.setState({ id_sistemas: [this.state.sistema_selecionado, ...this.state.id_sistemas] })
@@ -50,10 +71,10 @@ export default class addgalaxia extends Component {
         return (
             <>
                 <div className="tela">
-                    <div className="caixa-cadastro"
+                    <form className="caixa-cadastro"
                         onSubmit={this.handleSubmit}>
-                        <h1>Adicionar Galáxia</h1>
-                        
+                        <h1>Editar Sistema Planetário</h1>
+
                         <p>Nome da Galáxia</p>
                         <input type="text"
                             placeholder="Nome"
@@ -83,9 +104,10 @@ export default class addgalaxia extends Component {
                         </select>
                         <button onClick={() => this.adicionarSistema()}> Adicionar </button>
                         <button type="submit" onClick={() => this.handleSubmit()}>Enviar</button>
-                    </div>
+                    </form>
+
                 </div>
-            </>
-        )
+
+            </>);
     }
 }

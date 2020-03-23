@@ -60,6 +60,11 @@ export default class galaxias extends Component {
                                 <div className="dados">Distancia pra Terra: {galaxia.dist_terra}</div>
                             ) : (
                                 <div className="dados">Distancia pra Terra: desconhecida</div>
+                            )}
+                            {this.isnumber(galaxia.qtd_sistemas) ? (
+                                <div className="dados">Quantidade de sistemas pertencentes: {galaxia.qtd_sistemas}</div>
+                            ) : (
+                                <div className="dados">Quantidade de sistemas pertencentes: desconhecida</div>
                             )} 
                         </div>
                     ))}
